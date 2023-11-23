@@ -101,24 +101,10 @@ async function remove_visited_country(country_code) {
   try {
     const result = await db.query("DELETE FROM visited_countries WHERE country_code=$1", [country_code]);
     return null;
-  } catch(e) {
-    console.log("Error with deleting a country code.");
+  } catch (e) {
+    console.log("Error with deleting a country code.", e.stack);
     return e;
   }
-}
-
-function capitalize(str) {
-  if(str){
-    const st_letter = str[0].toUpperCase();
-    const remaining = str.slice(1).toLowerCase();
-
-    return st_letter + remaining;
-
-  } else {
-    return ""
-  }
-  
-}
 
 async function get_visited_countries() {
   try {
