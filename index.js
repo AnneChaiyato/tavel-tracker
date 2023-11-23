@@ -105,6 +105,7 @@ async function remove_visited_country(country_code) {
     console.log("Error with deleting a country code.", e.stack);
     return e;
   }
+}
 
 async function get_visited_countries() {
   try {
