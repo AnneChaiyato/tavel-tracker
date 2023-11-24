@@ -19,6 +19,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 db.connect();
+db.on('error', (err) => {
+  console.error('something bad has happened!', err.stack);
+});
 
 app.get("/", async (req, res) => {
   var visited_countries = await get_visited_countries(); 
