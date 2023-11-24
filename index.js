@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 const app = express();
 const port = process.env.PORT || 3000;
 app.set("port", process.env.PORT || 3000);
+app.set('view engine', 'ejs');
 dotenv.config();
 
 const db = new pg.Client({
