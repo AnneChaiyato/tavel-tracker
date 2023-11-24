@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 
 const app = express();
 const port = process.env.PORT || 3000;
+app.set("port", process.env.PORT || 3000);
 dotenv.config();
 
 const db = new pg.Client({
@@ -117,6 +118,6 @@ async function get_visited_countries() {
   }
 }
 
-app.listen(port, () => {
+app.listen(app.get("port"), () => {
   console.log(`Server running on http://localhost:${port}`);
 });
